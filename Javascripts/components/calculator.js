@@ -1,25 +1,59 @@
 import {printToDom} from "../Utilities/utils.js";
 import calculation from "../helpers/maths.js";
 
-const calculate = (firstNumber, secondNumber, operation) => {
+const calc = {
+    firstNumberEntered: '',
+    secondNumberEntered: '',
+    mathType: '',
+    display: ''
+};
+
+const calculate = () => {
     let output = 0;
-    switch(operation) {
+    switch(calc.mathType) {
         case 'multiply':
-            output = calculation.multiply(firstNumber, secondNumber);
+            output = calculation.multiply(calc.firstNumberEntered, calc.secondNumberEntered);
             break
         case 'divide':
-            output = calculation.divide(firstNumber, secondNumber);
+            output = calculation.divide(calc.firstNumberEntered, calc.secondNumberEntered);
             break;
         case 'add':
-            output = calculation.add(firstNumber, secondNumber);
+            output = calculation.add(calc.firstNumberEntered, calc.secondNumberEntered);
             break;
         case 'subtract':
-            output = calculation.subtract(firstNumber, secondNumber);
+            output = calculation.subtract(calc.firstNumberEntered, calc.secondNumberEntered);
             break;
         default:
             output = 'Nope';
     }
-    printToDom('output',output);
+    setDisplay(output);
 };
 
-export {calculate};
+const setDisplay = (someNum) => {
+    calc.display = someNum;
+    printToDom('output', calc.display)
+};
+
+const initialDisplay = () => {
+    calc.firstNumberEntered = '';
+    calc.secondNumberEntered = '';
+    calc.mathType = '';
+    printToDom('output', '0');
+};
+
+const addNumber = (num) => {
+    if (calc.mathType === '') {
+        calc.firstNumberEntered += num;
+        setDisplay(calc.firstNumberEntered);    
+    } else {
+        calc.secondNumberEntered += num;
+        setDisplay(calc.secondNumberEntered);
+    }
+    
+};
+
+const setMathType = (newMathType) => {
+    calc.mathType = newMathType;
+}
+
+export {calculate, addNumber, initialDisplay, setMathType};
