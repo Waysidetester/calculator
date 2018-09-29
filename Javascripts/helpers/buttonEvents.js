@@ -1,4 +1,4 @@
-import {addNumber} from '../components/calculator.js'
+import {addNumber, initialDisplay, setMathType} from '../components/calculator.js'
 
 const sevenButton = document.getElementById('7');
 const eightButton = document.getElementById('8');
@@ -39,10 +39,7 @@ const oneClicker = () => {oneButton.addEventListener('click', addNumberCaller)};
 
 const twoClicker = () => {twoButton.addEventListener('click', addNumberCaller)};
 
-const threeClicker = () => {threeButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
-})};
+const threeClicker = () => {threeButton.addEventListener('click', addNumberCaller)};
 
 const multiplyClicker = () => {multiplyButton.addEventListener('click', (e) => {
     let numb = e.target.innerHTML;
@@ -50,8 +47,7 @@ const multiplyClicker = () => {multiplyButton.addEventListener('click', (e) => {
 })};
 
 const divideClicker = () => {divideButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
+    setMathType('divide');
 })};
 
 const addClicker = () => {addButton.addEventListener('click', (e) => {
@@ -64,10 +60,7 @@ const subtractClicker = () => {subtractButton.addEventListener('click', (e) => {
     console.log(`${numb} was clicked`);
 })};
 
-const clearClicker = () => {clearButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
-})};
+const clearClicker = () => {clearButton.addEventListener('click', initialDisplay)};
 
 const equalsClicker = () => {equalsButton.addEventListener('click', (e) => {
     let numb = e.target.innerHTML;
