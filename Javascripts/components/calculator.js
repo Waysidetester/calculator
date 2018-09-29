@@ -1,6 +1,13 @@
 import {printToDom} from "../Utilities/utils.js";
 import calculation from "../helpers/maths.js";
 
+const calc = {
+    firstNumberEntered: '',
+    secondNumberEntered: '',
+    mathType: '',
+    display: ''
+};
+
 const calculate = (firstNumber, secondNumber, operation) => {
     let output = 0;
     switch(operation) {
@@ -19,7 +26,27 @@ const calculate = (firstNumber, secondNumber, operation) => {
         default:
             output = 'Nope';
     }
-    printToDom('output',output);
+    setDisplay(answer);
 };
 
-export {calculate};
+const setDisplay = (someNum) => {
+    calc.display = someNum;
+    printToDom('output', calc.display)
+};
+
+const initialDisplay = () => {
+    printToDom('output', '0');
+};
+
+const addNumber = (num) => {
+    if (calc.mathType === '') {
+        calc.firstNumberEntered += num;
+        setDisplay(calc.firstNumberEntered);    
+    } else {
+        calc.secondNumberEntered += num;
+        setDisplay(calc.secondNumberEntered);
+    }
+    
+};
+
+export {calculate, addNumber, initialDisplay};
