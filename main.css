@@ -4,13 +4,17 @@
     justify-content: center;
 }
 
-.btn-success {
+.btn-success, .btn-secondary {
     width: 20%;
     margin: 4px;
+    border: none;
 }
 
-#clear {
-    width: 41%;
+
+
+.btn-secondary {
+    background-color: #9b9b9b;
+    border-color: #9b9b9b;
 }
 
 #output {
