@@ -8,25 +8,25 @@ const calc = {
     display: ''
 };
 
-const calculate = (firstNumber, secondNumber, operation) => {
+const calculate = () => {
     let output = 0;
-    switch(operation) {
+    switch(calc.mathType) {
         case 'multiply':
-            output = calculation.multiply(firstNumber, secondNumber);
+            output = calculation.multiply(calc.firstNumberEntered, calc.secondNumberEntered);
             break
         case 'divide':
-            output = calculation.divide(firstNumber, secondNumber);
+            output = calculation.divide(calc.firstNumberEntered, calc.secondNumberEntered);
             break;
         case 'add':
-            output = calculation.add(firstNumber, secondNumber);
+            output = calculation.add(calc.firstNumberEntered, calc.secondNumberEntered);
             break;
         case 'subtract':
-            output = calculation.subtract(firstNumber, secondNumber);
+            output = calculation.subtract(calc.firstNumberEntered, calc.secondNumberEntered);
             break;
         default:
             output = 'Nope';
     }
-    setDisplay(answer);
+    setDisplay(output);
 };
 
 const setDisplay = (someNum) => {
@@ -37,6 +37,7 @@ const setDisplay = (someNum) => {
 const initialDisplay = () => {
     calc.firstNumberEntered = '';
     calc.secondNumberEntered = '';
+    calc.mathType = '';
     printToDom('output', '0');
 };
 

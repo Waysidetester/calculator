@@ -1,4 +1,4 @@
-import {addNumber, initialDisplay, setMathType} from '../components/calculator.js'
+import {addNumber, initialDisplay, calculate, setMathType} from '../components/calculator.js'
 
 const sevenButton = document.getElementById('7');
 const eightButton = document.getElementById('8');
@@ -41,31 +41,25 @@ const twoClicker = () => {twoButton.addEventListener('click', addNumberCaller)};
 
 const threeClicker = () => {threeButton.addEventListener('click', addNumberCaller)};
 
-const multiplyClicker = () => {multiplyButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
+const multiplyClicker = () => {multiplyButton.addEventListener('click', () => {
+    setMathType('multiply');
 })};
 
-const divideClicker = () => {divideButton.addEventListener('click', (e) => {
+const divideClicker = () => {divideButton.addEventListener('click', () => {
     setMathType('divide');
 })};
 
-const addClicker = () => {addButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
+const addClicker = () => {addButton.addEventListener('click', () => {
+    setMathType('add');
 })};
 
-const subtractClicker = () => {subtractButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
+const subtractClicker = () => {subtractButton.addEventListener('click', () => {
+    setMathType('subtract');
 })};
 
 const clearClicker = () => {clearButton.addEventListener('click', initialDisplay)};
 
-const equalsClicker = () => {equalsButton.addEventListener('click', (e) => {
-    let numb = e.target.innerHTML;
-    console.log(`${numb} was clicked`);
-})};
+const equalsClicker = () => {equalsButton.addEventListener('click', calculate   )};
 
 const funtionHolder = () => {
     oneClicker();
